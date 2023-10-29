@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>@yield('title')</title>
-        <link rel="icon" href="/img/favicon.jpg">
-        <link rel="stylesheet" href="/css/styles.css"/>
-        <link rel="stylesheet" href="/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="/css/owl.theme.default.min.css"> 
+        <link rel="icon" href="{{ asset('img/favicon.jpg') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"/>
         <meta name="theme-color" content="#0852C5">
     </head>
@@ -16,41 +16,41 @@
             <div class="menu-lateral">
                 <div class="menu-lateral-logo-autoconf"></div>
                 <div class="menu-lateral-links"> 
-                    <a href="/painel" class="{{ (Request::segment(1) == 'painel' && Request::segment(2) == '' ? 'menu-lateral-ativo' : '') }}">
+                    <a href="{{ asset('/painel') }}" class="{{ (Request::segment(1) == 'painel' && Request::segment(2) == '' ? 'menu-lateral-ativo' : '') }}">
                         <ion-icon name="home-outline"></ion-icon>
                         <p>Home</p>  
                     </a>
-                    <a href="/painel/marcas/cadastrar" class="{{ (Request::segment(2) == 'marcas' && (Request::segment(3) == 'cadastrar' || Request::segment(3) == 'editar')  ? 'menu-lateral-ativo' : '') }}">
+                    <a href="{{ asset('painel/marcas/cadastrar') }}" class="{{ (Request::segment(2) == 'marcas' && (Request::segment(3) == 'cadastrar' || Request::segment(3) == 'editar')  ? 'menu-lateral-ativo' : '') }}">
                         <ion-icon name="pricetag-outline"></ion-icon>
                         <p>Marcas</p>
                     </a>
-                    <a href="/painel/marcas/listar" class="{{ (Request::segment(2) == 'marcas' && Request::segment(3) == 'listar'  ? 'menu-lateral-ativo' : '') }}">
+                    <a href="{{ asset('painel/marcas/listar') }}" class="{{ (Request::segment(2) == 'marcas' && Request::segment(3) == 'listar'  ? 'menu-lateral-ativo' : '') }}">
                         <ion-icon name="pricetag-outline"></ion-icon>
                         <p>Listar Marcas</p>
                     </a>
-                    <a href="/painel/modelos/cadastrar" class="{{ (Request::segment(2) == 'modelos' && (Request::segment(3) == 'cadastrar' || Request::segment(3) == 'editar')  ? 'menu-lateral-ativo' : '') }}">
+                    <a href="{{ asset('painel/modelos/cadastrar') }}" class="{{ (Request::segment(2) == 'modelos' && (Request::segment(3) == 'cadastrar' || Request::segment(3) == 'editar')  ? 'menu-lateral-ativo' : '') }}">
                         <ion-icon name="shuffle-outline"></ion-icon>
                         <p>Modelos</p>
                     </a>
-                    <a href="/painel/modelos/listar" class="{{ (Request::segment(2) == 'modelos' && Request::segment(3) == 'listar'  ? 'menu-lateral-ativo' : '') }}">
+                    <a href="{{ asset('painel/modelos/listar') }}" class="{{ (Request::segment(2) == 'modelos' && Request::segment(3) == 'listar'  ? 'menu-lateral-ativo' : '') }}">
                         <ion-icon name="shuffle-outline"></ion-icon>
                         <p>Listar Modelos</p>
                     </a>
-                    <a href="/painel/veiculos/cadastrar" class="{{ (Request::segment(2) == 'veiculos' && (Request::segment(3) == 'cadastrar' || Request::segment(3) == 'editar') ? 'menu-lateral-ativo' : '') }}">
+                    <a href="{{ asset('painel/veiculos/cadastrar') }}" class="{{ (Request::segment(2) == 'veiculos' && (Request::segment(3) == 'cadastrar' || Request::segment(3) == 'editar') ? 'menu-lateral-ativo' : '') }}">
                         <ion-icon name="car-sport-outline"></ion-icon>
                         <p>Veículos</p>
                     </a>
-                    <a href="/painel/veiculos/listar" class="{{ (Request::segment(2) == 'veiculos' && Request::segment(3) == 'listar'  ? 'menu-lateral-ativo' : '') }}">
+                    <a href="{{ asset('painel/veiculos/listar') }}" class="{{ (Request::segment(2) == 'veiculos' && Request::segment(3) == 'listar'  ? 'menu-lateral-ativo' : '') }}">
                         <ion-icon name="car-sport-outline"></ion-icon>
                         <p>Listar Veículos</p>
                     </a>
-                    <a href="/" target="_blank">
+                    <a href="{{ asset('/') }}" target="_blank">
                         <ion-icon name="desktop-outline"></ion-icon>
                         <p>Voltar para o Site</p>
                     </a>
                 </div>
                 <div class="menu-lateral-fundo"> 
-                    <form class="form-fake2" action="/logout" method="POST">
+                    <form class="form-fake2" action="{{ asset('logout') }}" method="POST">
                         @csrf
                         <button>
                             <a>
@@ -65,13 +65,13 @@
             <header class="menu">
                 <div class="conteudo-center-1200">
                     <div class="menu-div">
-                        <a class="menu-div-logo-autoconf" href="/"></a>
+                        <a class="menu-div-logo-autoconf" href="{{ asset('/') }}"></a>
                         <div class="menu-div-links">
                             @guest
-                                <a href="/login">Acessar Painel</a>
+                                <a href="{{ asset('login') }}">Acessar Painel</a>
                             @endguest
                             @auth
-                                <a href="/painel">Painel</a> 
+                                <a href="{{ asset('painel') }}">Painel</a> 
                             @endauth
                         </div>
                     </div> 
@@ -101,7 +101,7 @@
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>        
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <script src="/js/funcoes.js"></script>
-        <script src="/js/owl.carousel.min.js"></script>
-    </body>
+        <script src="{{ asset('js/funcoes.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    </body> 
 </html> 

@@ -5,9 +5,9 @@
         <div class="container-painel-div">
             <p class="container-painel-div-titulo-paginas">Painel > Modelos > {{ $url }}</p>
             @if($url != "listar")
-                <form class="container-painel-div-form" action="{{ $url == 'editar' ? '/painel/modelos/put/'.$resultDB->id : '/painel/modelos/cadastrar' }}" method="POST" enctype="multipart/form-data">
+                <form class="container-painel-div-form" action="{{ $url == 'editar' ? asset('painel/modelos/put/'.$resultDB->id) : asset('painel/modelos/cadastrar') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @if($url == "editar")
+                    @if($url == "editar") 
                         @method('PUT')
                     @endif
                     <div class="wid-60pc">
@@ -51,9 +51,9 @@
                                 <td class="box-shadow-acao txt-align-center">{{ $res->marca }}</td>   
                                 <td class="box-shadow-acao"> 
                                     <div class="botoes-de-acao">
-                                        <a href="/painel/modelos/editar/{{ $res->id }}" class="editar">Editar</a>
+                                        <a href="{{ asset('painel/modelos/editar/'.$res->id) }}" class="editar">Editar</a>
                                         @if(array_search($res->id, $veiculosDB) == "")
-                                            <a class="excluir excluir-js" id="/painel/modelos/deletar/{{ $res->id }}">Excluir</a>
+                                            <a class="excluir excluir-js" id="{{ asset('painel/modelos/deletar/'.$res->id) }}">Excluir</a>
                                         @else
                                             <a class="excluir opacity02">Excluir</a>
                                         @endif

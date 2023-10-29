@@ -5,7 +5,7 @@
         <div class="container-painel-div">
             <p class="container-painel-div-titulo-paginas">Painel > Veículos > {{ $url }}</p>
             @if($url != "listar")
-                <form class="container-painel-div-form" action="{{ $url == 'editar' ? '/painel/veiculos/put/'.$resultDB->id : '/painel/veiculos/cadastrar' }}" method="POST" enctype="multipart/form-data">
+                <form class="container-painel-div-form" action="{{ $url == 'editar' ? asset('painel/veiculos/put/'.$resultDB->id) : asset('painel/veiculos/cadastrar') }}" method="POST" enctype="multipart/form-data">
                     @csrf 
                     @if($url == "editar")
                         @method('PUT')
@@ -84,8 +84,8 @@
                                 <td class="box-shadow-acao txt-align-center">R$ {{ number_format($res->preco,2,",",".") }}</td>
                                 <td class="box-shadow-acao">
                                     <div class="botoes-de-acao">
-                                        <a href="/painel/veiculos/editar/{{ $res->id }}" class="editar">Editar</a>
-                                        <a class="excluir excluir-js" id="/painel/veiculos/deletar/{{ $res->id }}">Excluir</a>
+                                        <a href="{{ asset('painel/veiculos/editar/'.$res->id) }}" class="editar">Editar</a>
+                                        <a class="excluir excluir-js" id="{{ asset('painel/veiculos/deletar/'.$res->id) }}">Excluir</a>
                                     </div>
                                 </td>
                             </tr>
