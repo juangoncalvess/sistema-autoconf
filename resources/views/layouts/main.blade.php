@@ -16,7 +16,7 @@
             <div class="menu-lateral">
                 <div class="menu-lateral-logo-autoconf"></div>
                 <div class="menu-lateral-links"> 
-                    <a href="{{ asset('/painel') }}" class="{{ (Request::segment(1) == 'painel' && Request::segment(2) == '' ? 'menu-lateral-ativo' : '') }}">
+                    <a href="{{ asset('painel') }}" class="{{ (Request::segment(1) == 'painel' && Request::segment(2) == '' ? 'menu-lateral-ativo' : '') }}">
                         <ion-icon name="home-outline"></ion-icon>
                         <p>Home</p>  
                     </a>
